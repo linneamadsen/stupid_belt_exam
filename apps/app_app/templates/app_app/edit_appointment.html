@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <form action='/update_appointment/{{appointment.id}}' method='POST'>
+            {% csrf_token %}
+            <input type="hidden" name='user' value='{{request.session.user_id}}'>
+            <table>
+                <tr>
+                    <td>Description</td>
+                    <td><input type='text' name='description' value="{{appointment.description}}"></td>
+                </tr>
+                <tr>
+                    <td>Date</td>
+                    <td><input type='text' name='due_date' value="{{ appointment.due_date }}"></td>
+                </tr>
+                <tr>
+                    <td>Time</td>
+                    <td><input type='text' name='time_due' value="{{ appointment.time_due }}"></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><input type='radio' name='status' value='Pending' checked="checked">Pending<input type='radio' name='status' value='Done'>Done<input type='radio' name='status' value='Missed'>Missed</td>
+                </tr>
+            </table>
+            <input type='submit' value='edit appointment'>
+        </form>
+
+    </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>Register</h1>
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+        <form action='/register' method='POST'>
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td><input type='text' name='name'></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input type='text' name='email'></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input type='text' name='password'></td>
+                </tr>
+                <tr>
+                    <td>Confirm Password</td>
+                    <td><input type='text' name='re_password'></td>
+                </tr>
+                <tr>
+                    <td>Birthday</td>
+                    <td><input type='date' name='birthday'></td>
+                </tr>
+            </table>
+            <input type='submit' value='register'>
+        </form>
+
+        <h1>Log In</h1>
+            <form action='/login' method='POST'>
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type='text' name='email'></td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td><input type='text' name='password'></td>
+                    </tr>
+                </table>
+                <input type='submit' value='log in'>
+            </form>
+    </body>
+</html>
